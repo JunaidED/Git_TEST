@@ -1,10 +1,8 @@
 Hello, Git! - edited on fastforward branch part 2
-<<<<<<< HEAD
 This is my first file.Made change in main
-=======
-This is my first file. Made change in conflict-merge-line 2
->>>>>>> conflict_merge_line2
 
 I am getting a refresher on GIT
 This line was added on my-feature branch
 learning about pull requests now on branch called my-pr-branch
+
+learning about pull requests on branch pull-request-branch
