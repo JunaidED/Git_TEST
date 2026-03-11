@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Hello, Git! - edited on main
-=======
-Hello, Git! - edited on conflict-main again
->>>>>>> conflict-branch
+Hello, Git! - edited on fastforward branch part 2
 This is my first file.
 
 I am getting a refresher on GIT
