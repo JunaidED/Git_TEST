@@ -1,2 +1,4 @@
 Hello, Git!
 This is my first file.
+
+I am getting a refresher on GIT
