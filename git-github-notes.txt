@@ -190,6 +190,42 @@ WARNING: Never rebase commits already pushed and shared with others!
 Rule: Use merge by default. Only rebase if your team has a rebase convention.
 
 ------------------------------------------------------
+REMOVE .env file if accidentally uploaded into Github
+------------------------------------------------------
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch .env" --prune-empty --tag-name-filter cat -- --all
+git push origin master --force
+
+git log --oneline  # Gives history of commits 
+git show {id}:.env # check each segment of history for the .env file
+
+git log --all --full-history -- .env # Gives history of commits 
+
+1. Revoked the exposed token
+
+Databricks → Settings → Developer → Access Tokens → Revoke
+This made the leaked token useless immediately
+2. Removed .env from git history
+
+
+git stash clear                          # clear stash entries that held .env
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch .env" --prune-empty --tag-name-filter cat -- --all
+git push origin master --force           # overwrite remote with cleaned history
+3. Verified it was gone
+
+
+git show 4c960396:.env                   # check specific commit — returned fatal: path does not exist
+4. Confirmed .env is not being tracked
+
+
+git ls-files .env                        # returned nothing = not tracked
+5. Generated a new token
+
+Databricks → Settings → Developer → Access Tokens → Generate new token
+Updated local .env with new token
+
+
+
+------------------------------------------------------
 TAGS
 ------------------------------------------------------
 Bookmarks on specific commits, used for version releases.
